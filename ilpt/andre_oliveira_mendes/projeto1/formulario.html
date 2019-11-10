@@ -1,0 +1,133 @@
+<html>
+	<head>
+		<title> Formulario </title>
+		<link rel="stylesheet" type="text/css" href="./style.css"/>
+	</head>
+	<body>
+		<div class = top>
+			<table>
+				<tr>
+					<td> <a href = './index.html'>abertura</a> </td>
+					<td> <a href = './abertura.html'>identifica&ccedil;&atilde;o</a> </td>
+					<td> <a href = './formulario.html'>formulario</a> </td>
+					<td> <a href = './ancora.html'>ancora</a> </td>
+					<td> <a href = './relatorio.html'>relatorio</a> </td>
+				</tr>
+			</table>
+		</div>
+		<div class = bottom>
+			<br><h4 class = title>Formulario</h4>
+			<form action = '' method = 'POST'>
+				<table border = 0>
+					<tr>
+						<td>
+							nome
+						</td>
+						<td>
+							<input type = 'text' id='nome' name='nome'>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							descrição
+						</td>
+						<td>
+							<textarea name = 'txt_nome' rows = '' cols = ''  maxlength = '' placeholder = 'digite uma historia aqui'></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							escolha sua bebida favorita
+						</td>
+						<td>
+							<select name = 'beb'>
+								<option value = '1'>agua</option>
+								<option value = '2'>coca</option>
+								<option value = '3'>fanta</option>
+								<option value = '4'>pepsi</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							senha magica
+						</td>
+						<td>
+							<input type = 'password' id = 'pass' name = 'pwd' minlenght = '4' required>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							genero
+						</td>
+						<td>
+							<input type='radio' name='sex' value='F'>F
+							<input type='radio' name='sex' value='M'>M
+							<input type='radio' name='sex' value='I'>N/Binario
+						</td>
+					</tr>
+					<tr>
+						<td>
+							comida favorita
+						</td>
+						<td>
+							<input type='checkbox' name='food' value='1'>batata
+							<input type='checkbox' name='food' value='2'>salcicha
+							<input type='checkbox' name='food' value='4'>carne
+						</td>
+					</tr>
+					<tr>
+						<td>
+							digite seu peso (kg)
+						</td>
+						<td>
+							<input type='number' id='numero' name='numero' min=0 max=400>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							data de nascimento
+						</td>
+						<td>
+							<input type='date' id='data' name='data'>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							email de envio
+						</td>
+						<td>
+							<input type='email' id='email' name='email' required>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							quantidade
+						</td>
+						<td>
+							10<input type='range' id='range' name='range' min=10 max=200>200
+						</td>
+					</tr>
+					<tr>
+						<td>
+							digite um url de site
+						</td>
+						<td>
+							<input type='url' id='url' name='url' placeholder='http://www' required>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							bottoes (acao, submisao e resetar)
+						</td>
+						<td>
+							<input type='button' value='botao' name='button1'>
+							<input type='reset' value='Limpar' name='button2'>
+							<input type='submit' value='Enviar' name='button3'>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</body>
+</html>

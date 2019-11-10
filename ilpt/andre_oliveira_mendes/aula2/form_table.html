@@ -1,0 +1,100 @@
+<html>
+	<head>
+		<title>
+			Formulario em tabela
+		</title>
+	</head>
+	<body>
+		<form action = '' method = 'POST'>
+			<table border = 2>
+				<tr>
+					<td colspan = 2>Tags para form da HTML 4</td>
+				</tr>
+				<tr>
+					<td>entrada de texto</td>
+					<td><textarea name='txt_nome' rows='' cols=''  maxlength=''></textarea></td>
+				</tr>
+				<tr>
+					<td>
+						op&ccedil;&atilde;o de esporte
+					</td>
+					<td>
+						<select name='val_esp'>
+							<option value='1'> futebol </option>
+							<option value='2'> basebal </option>
+							<option value='3'> nata&ccedil;&atilde;o </option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>sexo</td>
+					<td>
+						<input type='radio' name='sex' value='1'>M
+						<input type='radio' name='sex' value='2'>F
+					</td>
+				</tr>
+				<tr>
+					<td>comida favorita</td>
+					<td>
+						<input type='checkbox' name='food' value='1'>batata
+						<input type='checkbox' name='food' value='2'>salcicha
+					</td>
+				</tr>
+				<tr>
+					<td>botao</td>
+					<td>
+						<input type='button' value='botao' name='button1'>
+						<input type='reset' value='Limpar' name='button2'>
+						<input type='submit' value='Enviar' name='button3'>
+					</td>
+				</tr>
+				<tr>
+					<td colspan = 2>TAGs para form da HTML5</td>
+				</tr>
+				<tr>
+					<td><label for='nome'>Nome</label></td>
+					<td><input type='text' id='nome' name='nome' required autofocus></td>
+				</tr>
+				<tr>
+					<td><label for='email'>e-Mail</label></td>
+					<td><input type='email' id='email' name='email' required></td>
+				</tr>
+				<tr>
+					<td><label for='numero'>numero</label></td>
+					<td><input type='number' id='numero' name='numero' min=10 max=100></td>
+				</tr>
+				<tr>
+					<td><label for='url'>URL</label></td>
+					<td><input type='url' id='url' name='url' placeholder='http://www' required></td>
+				</tr>
+				<tr>
+					<td><label for='pesquisa'>Pesquisa</label></td>
+					<td><input type='search' id='pesquisa' name='pesquisa' placeholder='Digite algo'></td>
+				</tr>
+				<tr>
+					<td><label for='range'>Intervalo</label></td>
+					
+					<td>10<input type='range' id='range' name='range' min=10 max=20>20</td>
+				</tr>
+				<tr>
+					<td><label for='data'>Data</label></td>
+					<td><input type='date' id='data' name='data'></td>
+				</tr>
+				</tr>
+				<tr>
+					<td><label for='cor'>Cor</label></td>
+					<td><input type='color' id='cor' name='cor'></td>
+				</tr>
+				<tr>
+					<td><label for='submit'>bot&atilde;o</label></td>
+					<td><input type='submit' value='Enviar' name='acao'></td>
+				</tr>
+				<tr>
+					<td colspan = 2><a href = 'https://www.ime.usp.br/~glauber/html/acentos.htm' target="_blank">referenca de caracteres</a></td>
+				</tr>
+			</table>
+		</form>
+		<hr>
+		<footer><p>&copy; 2019 - andr&eacute;</p></footer>
+	</body>
+</html>
