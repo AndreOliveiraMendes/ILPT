@@ -25,6 +25,7 @@ switch ($bloco){
 		break;
 	case (2): # Executando a função que mostra os detalhes do registro escolhido no picklist.
 		mostraregistro("$_REQUEST[pkfabricante]");
+		botoes("",2,1,0,0);
 		break;
 }
 fimdepagina("Consultar","fabricantesconsultar.php",FALSE);
