@@ -52,7 +52,9 @@ switch ($bloco){
 		printf("<tr><td>&nbsp;</td><td>Complemento: <input type='text' name='txcomplemento' value='$reg[txcomplemento]' size='48' maxlength='80'></td></tr>");
 		printf("<tr><td>&nbsp;</td><td>CEP: <input type='text' name='nucep' value='$reg[nucep]' size='8' maxlength='8'></td></tr>");
 		printf("<tr><td>Data de fabricação</td><td><input type='date' name='dtcadfabricante' value='$reg[dtcadfabricante]'></td></tr>");
-		printf("<tr><td>&nbsp;</td><td><input type='reset' value='Limpar'><input type='submit' value='Alterar registro'></td></tr>\n");
+		printf("<tr><td>&nbsp;</td><td>");
+		botoes("Alterar",2,1,1,0);
+		printf("</td></tr>\n");
 		printf("</table>\n");
 		printf("</form>\n");
 		break;
@@ -93,9 +95,7 @@ switch ($bloco){
 			}
 		}
 		printf("$mens<br>\n");
-		printf("<input type='button' value='Escolher' onclick='history.go(-2)'>\n");
-		printf("<input type='button' value='Voltar' onclick='history.go(-1)'>\n");
-		printf("<input type='button' value='Sair' onclick='history.go(-3)'><br>\n");
+		botoes('',3,1,0,2);
 		break;
 }
 # Finalizando a página
