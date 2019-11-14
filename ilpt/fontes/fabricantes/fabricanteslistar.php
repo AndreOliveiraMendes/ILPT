@@ -19,8 +19,8 @@ $bloco=( ISSET($_POST['bloco']) ) ? $_POST['bloco'] : 1;
 $cordefundo=($bloco<3) ? '#FFDEAD' : '#FFFFFF';
 iniciapagina("fabricantes","Listar",$cordefundo);
 # Separador de Blocos Lógicos do programa
-switch (TRUE){
-	case ( $bloco==1 ):# este bloco monta o form e passa o bloco para o valor 2 em modo oculto
+switch ($bloco){
+	case (1):# este bloco monta o form e passa o bloco para o valor 2 em modo oculto
 		printf(" <form action='./fabricanteslistar.php' method='post'>\n");
 		printf("  <input type='hidden' name='bloco' value=2>\n");
 		printf("Escolha a ordem como os dados serão exibidos no relatório:<br>\n
@@ -55,7 +55,9 @@ switch (TRUE){
 		if ( $bloco==2 ){
 			printf("<form action='./fabricanteslistar.php' method='POST' target='_NEW'>\n");
 			printf("<input type='hidden' name='bloco' value=3>\n");
-			printf("Gerar cópia para "); botoes("Impressão",2,1,0,0); # <button type='submit'>Impressão</button>
+			printf("<input type='hidden' name='ordem' value=$_REQUEST[ordem]>\n");
+			printf("Gerar cópia para ");
+			botoes("Impressão",2,1,0,0); # <button type='submit'>Impressão</button>
 			printf("</form>\n");
 		} else {
 			printf("<button type='submit' onclick='window.print();'>Imprimir</button> - Corte a folha abaixo da linha no final da página<br>\n<hr>\n");
