@@ -1,6 +1,6 @@
 <?php
 #--------------------------------------------------------------------------------------------------------------------------------
-# Programa....: medicosexcluir (arquivo medicosexcluir.php)
+# Programa....: fabricantesexcluir (arquivo fabricantesexcluir.php)
 # Descrição...: Este eh o PA-Excluir. Este programa tem 3 'cases'. O case 1 mostra a picklist para escolha do registro a excluir.
 #               O cases 2 exibe os detalhes do registro e apresenta um form para confirmar a exclusao. O case 3 trata a transacao
 #               de exclusão do registro.
@@ -30,9 +30,9 @@ switch ($bloco){
 		# montando o form que 'confirma a exclusão', passando o bloco para 3 em modo oculto
 		printf("<form action='fabricantesexcluir.php' method='post'>\n
 			<input type='hidden' name='bloco' value=3>\n
-			<input type='hidden' name='pkfabricante' value='$_REQUEST[pkfabricante]'>\n
-			<input type='submit' value='Confirma a exclusão'>\n
-			</form>\n");
+			<input type='hidden' name='pkfabricante' value='$_REQUEST[pkfabricante]'>\n");
+		botoes("Confirma Exclus&atilde;o",2,1,0,0);
+		printf("</form>\n");
 		break;
 	case (3): # Executa o controle da exclusão
 		# Montando o comando que vai deletar o registro
@@ -63,6 +63,7 @@ switch ($bloco){
 			}
 		}
 		printf("$mens<br>\n");
+		botoes("",3,0,0,2);
 		break;
 }
 fimdepagina("excluir","fabricantesexcluir.php",FALSE);
