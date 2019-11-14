@@ -31,9 +31,8 @@ switch (TRUE){
 		break;
 	case ( $bloco==2 || $bloco==3 ):# Este bloco vai processar a junção de fabricantes com logradouros
 		# Depois monta a tabela com os dados e a seguir um form permitindo que a listagem seja exibida para impressão em uma nova aba.
-		$cmdsql="SELECT F.*,
-					L.txnomelogradouro as txlog
-					FROM fabricantes AS F INNER JOIN logradouros AS L ON F.fklogradouro=L.pklogradouro";
+		$cmdsql="SELECT F.*, L.txnomelogradouro as txlog
+					FROM fabricantes AS F INNER JOIN logradouros AS L ON F.fklogradouro=L.pklogradouro ORDER BY $_REQUEST[ordem]";
 		$execsql=mysqli_query($linkmy,$cmdsql);
 		printf("<table border=1 style=' border-collapse: collapse; '>
 			<tr><td>Cod.</td>\n
