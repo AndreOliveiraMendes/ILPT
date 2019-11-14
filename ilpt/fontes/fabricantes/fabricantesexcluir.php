@@ -1,6 +1,6 @@
 <?php
 #--------------------------------------------------------------------------------------------------------------------------------
-# Programa....: medicosexcluir (arquivo medicosexcluir.php)
+# Programa....: fabricantesexcluir (arquivo fabricantesexcluir.php)
 # Descrição...: Este eh o PA-Excluir. Este programa tem 3 'cases'. O case 1 mostra a picklist para escolha do registro a excluir.
 #               O cases 2 exibe os detalhes do registro e apresenta um form para confirmar a exclusao. O case 3 trata a transacao
 #               de exclusão do registro.
