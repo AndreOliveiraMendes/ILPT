@@ -51,7 +51,7 @@ int main(){
 }
 int mmc_list(int qtd, Remedio* list){
 	if (qtd == 2)
-		return list[0].I*list[1].I/mdc(list[0].I,list[1].I);
+		return mmc(list[0].I, list[1].I);
 	else if (qtd > 2)
 		return mmc(list[0].I, mmc_list(qtd - 1, &list[1]));
 	else{
