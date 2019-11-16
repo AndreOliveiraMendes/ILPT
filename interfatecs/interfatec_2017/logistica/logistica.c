@@ -30,17 +30,14 @@ int main(){
 			continue;
 		aux = n - '0';
 		j = 0;
-		while(list[j].espaco_livre < aux){
+		while(list[j].espaco_livre < aux)
 			j++;
-		}
 		list[j].espaco_livre -= aux;
 		plts = (pal*) realloc(plts, (i + 1)*sizeof(pal));
 		plts[i].cont = j;
 		plts[i].pos = list[j].total_elem;
 		list[j].ind = (int*) realloc(list[j].ind, (list[j].total_elem + 1)*sizeof(int));
-		list[j].ind[list[j].total_elem] = i;
-		list[j].total_elem++;
-		i++;
+		list[j].ind[list[j].total_elem++] = i++;
 	}
 	while(scanf("%d", &aux) != EOF){
 		int pallet = aux - 1;
@@ -56,10 +53,9 @@ int main(){
 		}
 		printf("\n");
 	}
-	for(i = 0; i < 50; i++){
+	for(i = 0; i < 50; i++)
 		if(list[i].total_elem)
 			free(list[i].ind);
-	}
 	free(list);
 	free(plts);
 	return 0;
