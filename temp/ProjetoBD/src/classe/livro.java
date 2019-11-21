@@ -8,13 +8,15 @@ package classe;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Aluno
  */
-public class livro {
+public class Livro {
     private String titulo;
     private String autor;
     private Date data_entrada;
@@ -51,9 +53,9 @@ public class livro {
     public void setGenero(String genero) {
         this.genero = genero;
     }
-    public livro() {
+    public Livro() {
     }
-    public livro(String titulo, String autor, Date data_entrada, Date data_lancamento, String genero) {
+    public Livro(String titulo, String autor, Date data_entrada, Date data_lancamento, String genero) {
         this.titulo = titulo;
         this.autor = autor;
         this.data_entrada = data_entrada;
@@ -61,9 +63,8 @@ public class livro {
         this.genero = genero;
     }
     
-    public void save(livro l) throws Exception{
-        try {
-            Connection conexao = new Conexao().Conectar();
+    public void save(Livro l) throws Exception{
+        try(Connection conexao = new Conexao().Conectar()){
             PreparedStatement ps;
             String sql = "INSERT INTO livro(titulo, "
                     + "autor, "
@@ -78,6 +79,36 @@ public class livro {
             ps.setDate(4, l.getData_lancamento());
             ps.setString(5, l.getGenero());
             ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "inclusao finalizada");
+            conexao.close();
+        } catch(SQLException u){
+            throw new RuntimeException(u);
+        }
+    }
+    public void list(Livro l, javax.swing.JTable tblTable) throws Exception{
+        try(Connection conexao = new Conexao().Conectar()){
+            PreparedStatement ps;
+            String sql = "SELECT * FROM livro";
+            ps = conexao.prepareStatement(sql);
+            ResultSet rq = ps.executeQuery();
+            while(rq.next()){
+                int id;
+                String Titulo, Autor, Genero;
+                Date dt_ent, dt_lan;
+                id = rq.getInt("id");
+                Titulo = rq.getString("titulo");
+                Autor = rq.getString("autor");
+                Genero = rq.getString("genero");
+                dt_ent = rq.getDate("data_entrada");
+                dt_lan = rq.getDate("data_lancamento");
+                /*JOptionPane.showMessageDialog(null, "livro:" + Titulo
+                    + "\nautor:" + Autor
+                    + "\ngenero:" + Genero
+                    + "\ndata de entrada no sistema:" + dt_ent
+                    + "\ndata de lancamento:" + dt_lan);*/
+            }
+            JOptionPane.showMessageDialog(null, "listagem finalizada");
+            conexao.close();
         } catch(SQLException u){
             throw new RuntimeException(u);
         }
