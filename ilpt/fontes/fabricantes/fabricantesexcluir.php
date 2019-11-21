@@ -23,8 +23,7 @@ $bloco=( ISSET($_POST['bloco']) ) ? $_POST['bloco'] : 1;
 # Separador de Blocos Lógicos do programa
 switch ($bloco){
 	case (1): # chamada da função que monta a caixa de seleção para escolha do registro
-		picklist("fabricantesexcluir.php");
-		botoes("excluir",1,0,0,0);
+		picklist("fabricantesexcluir.php", "excluir");
 		break;
 	case (2): # Executando a função que mostra os detalhes do registro escolhido no picklist.
 		mostraregistro("$_REQUEST[pkfabricante]");

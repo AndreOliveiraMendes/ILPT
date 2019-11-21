@@ -24,7 +24,7 @@ switch ($bloco){
 		printf(" <form action='./fabricanteslistar.php' method='post'>\n");
 		printf("  <input type='hidden' name='bloco' value=2>\n");
 		printf("Escolha a ordem como os dados serão exibidos no relatório:<br>\n
-			Código do fabricante.:(<input type='radio' name='ordem' value='F.pkfabricante'>)<br>\n
+			Código do fabricante.:(<input type='radio' name='ordem' value='F.pkfabricante' checked>)<br>\n
 			Nome do fabricante...:(<input type='radio' name='ordem' value='F.txnome'>)<br>\n"); 
 		botoes('Listar',1,0,1,0);
 		printf(" </form>\n"); 

@@ -24,8 +24,7 @@ $bloco=( ISSET($_POST['bloco']) ) ? $_POST['bloco'] : 1;
 # Separador de Blocos Lógicos do programa
 switch ($bloco){
 	case (1): 
-		picklist("fabricantesalterar.php");
-		botoes("alterar",1,0,0,0);
+		picklist("fabricantesalterar.php", "alterar");
 		break;
 	case (2):
 		# Neste case monta-se o formulário para entrada de dados para um registro da tabela medicos

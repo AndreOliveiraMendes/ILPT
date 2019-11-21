@@ -9,7 +9,7 @@
 # Criação.....: 2018-10-30
 # Atualização.: 2018-10-30 - Criacao e desenvolvimento das funções: picklist() e mostraregistro().
 #--------------------------------------------------------------------------------------------------------------------------------
-function picklist($prg){ # este bloco monta o form e passa o bloco para o valor 2 em modo oculto
+function picklist($prg, $acao){ # este bloco monta o form e passa o bloco para o valor 2 em modo oculto
 	# Aqui se escreve o segmento de código que 'lê' a tabela fabricantes recuperando
 	# os campos pkfabricante, txnome
 	global $linkmy;
@@ -22,6 +22,7 @@ function picklist($prg){ # este bloco monta o form e passa o bloco para o valor 
 		printf("<option value='$le[pkfabricante]'>$le[txnome]-($le[pkfabricante])</option>\n");
 	}
 	printf("</select><br>");
+	botoes($acao,1,0,0,0);
 }
 function mostraregistro($CP){ # Este bloco vai exibir os dados do fabricante escolhido no form da tela anterior
 	# lendo o registro de fabricantes

@@ -26,7 +26,7 @@ switch ($bloco){
 		printf("<form action='fabricantesincluir.php' method='POST'>\n");
 		printf("<input type='hidden' name='bloco' value=2>\n");
 		printf("<table>\n");
-		printf("<tr><td>Nome</td><td><input type='' name='txnome' size='40' maxlength='200' value='Nome completo e sem abreviação'></td></tr>");
+		printf("<tr><td>Nome</td><td><input type='' name='txnome' size='40' maxlength='200' placeholder='Nome completo e sem abreviação'></td></tr>");
 		printf("<tr><td>razao social</td><td><input type='' name='txrazaosocial' size='' maxlength='20' value=''></td></tr>");
 		$cmdsql="SELECT pklogradouro, txnomelogradouro FROM logradouros ORDER BY txnomelogradouro";
 		$execsql=mysqli_query($linkmy,$cmdsql);
@@ -35,8 +35,8 @@ switch ($bloco){
 			printf("<option value='$reg[pklogradouro]'>$reg[txnomelogradouro]-($reg[pklogradouro])</option>\n");
 		}
 		printf("</select></td></tr>\n");
-		printf("<tr><td>&nbsp;</td><td>Complemento: <input type='text' value='referencias' name='txcomplemento' size='55' maxlength='80'></td></tr>");
-		printf("<tr><td>&nbsp;</td><td>CEP: <input type='text' name='nucep' value='SÃ³ N&ordm;' size='8' maxlength='8'></td></tr>");
+		printf("<tr><td>&nbsp;</td><td>Complemento: <input type='text' placeholder='referencias' name='txcomplemento' size='55' maxlength='80'></td></tr>");
+		printf("<tr><td>&nbsp;</td><td>CEP: <input type='text' name='nucep' placeholder='so N&#186;' size='8' maxlength='8'></td></tr>");
 		printf("<tr><td>Data de fabricacao</td><td><input type='date' name='dtcadfabricante'></td></tr>");
 		printf("<tr><td>&nbsp;</td><td>");
 		botoes("Incluir",1,0,1,0);
