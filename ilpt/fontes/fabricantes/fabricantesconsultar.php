@@ -11,7 +11,7 @@
 #--------------------------------------------------------------------------------------------------------------------------------
 require_once("../../funcoes/toolkit.php");
 require_once("./fabricantesfuncoes.php");
-iniciapagina("fabricantes","Consulta","#F1F1F1");
+iniciapagina("fabricantes","Consulta","#FFDEAD");
 # Este é um exemplo de programa recursivo
 # Usa-se uma das funções de ambiente do PHP que
 # Veririfica se exsite valor em variável ou vetor.
@@ -22,6 +22,7 @@ $bloco=( ISSET($_POST['bloco']) ) ? $_POST['bloco'] : 1;
 switch ($bloco){
 	case (1): # chamada da função que monta a caixa de seleção para escolha do registro
 		picklist("fabricantesconsultar.php");
+		botoes("Consultar",1,0,0,0);
 		break;
 	case (2): # Executando a função que mostra os detalhes do registro escolhido no picklist.
 		mostraregistro("$_REQUEST[pkfabricante]");

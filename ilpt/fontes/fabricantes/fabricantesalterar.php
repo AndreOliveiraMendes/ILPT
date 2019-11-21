@@ -25,6 +25,7 @@ $bloco=( ISSET($_POST['bloco']) ) ? $_POST['bloco'] : 1;
 switch ($bloco){
 	case (1): 
 		picklist("fabricantesalterar.php");
+		botoes("alterar",1,0,0,0);
 		break;
 	case (2):
 		# Neste case monta-se o formulário para entrada de dados para um registro da tabela medicos

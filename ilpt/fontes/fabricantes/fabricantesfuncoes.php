@@ -21,9 +21,7 @@ function picklist($prg){ # este bloco monta o form e passa o bloco para o valor 
 	while ( $le=mysqli_fetch_array($execsql) ){ # laço para ler os registros do vetor montado no _query()
 		printf("<option value='$le[pkfabricante]'>$le[txnome]-($le[pkfabricante])</option>\n");
 	}
-	printf("  </select><br>\n
-			<input type='submit' value='Enviar'>\n
-			</form>\n");
+	printf("</select><br>");
 }
 function mostraregistro($CP){ # Este bloco vai exibir os dados do fabricante escolhido no form da tela anterior
 	# lendo o registro de fabricantes
