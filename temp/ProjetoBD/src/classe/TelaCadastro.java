@@ -10,7 +10,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -180,6 +179,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         });
 
         jButton4.setText("deletar");
+        jButton4.setEnabled(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -275,7 +275,8 @@ public class TelaCadastro extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Livro s = new Livro();
         try {
-            s.list(tblLista);
+            if(s.list(tblLista))
+                jButton4.setEnabled(true);
         } catch (Exception ex) {
             Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
         }        
@@ -285,16 +286,18 @@ public class TelaCadastro extends javax.swing.JFrame {
         DefaultTableModel dmodel = (DefaultTableModel)tblLista.getModel();
         while (dmodel.getRowCount() > 0)
             dmodel.removeRow(0);
+        jButton4.setEnabled(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         try{
             int selected = tblLista.getSelectedRow();
             if (selected >= 0){
-                    Livro s = new Livro();
-                    s.setID((int) tblLista.getModel().getValueAt(selected, 0));
-                    s.delet();
-                    s.list(tblLista);
+                Livro s = new Livro();
+                s.setID((int) tblLista.getModel().getValueAt(selected, 0));
+                s.delet();
+                if(!s.list(tblLista))
+                    jButton4.setEnabled(false);
             }
         } catch(Exception e){
             System.err.println(Arrays.toString(e.getStackTrace()));

@@ -12,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 /**
  *
@@ -94,7 +93,8 @@ public class Livro {
             throw new RuntimeException(u);
         }
     }
-    public void list(javax.swing.JTable tblTable) throws Exception{
+    public boolean list(javax.swing.JTable tblTable) throws Exception{
+        boolean res = false;
         try(Connection conexao = new Conexao().Conectar()){
             PreparedStatement ps;
             String sql = "SELECT * FROM livro";
@@ -112,11 +112,13 @@ public class Livro {
                 info[4] = rq.getDate("data_entrada");
                 info[5] = rq.getDate("data_lancamento");
                 dmodel.addRow(info);
+                res = true;
             }
             conexao.close();
         } catch(SQLException u){
             throw new RuntimeException(u);
         }
+        return res;
     }
     public void delet() throws Exception{
         try(Connection conexao = new Conexao().Conectar()){
