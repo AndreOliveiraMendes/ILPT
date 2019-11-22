@@ -11,18 +11,27 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
  * @author Aluno
  */
 public class Livro {
+    private int id;
     private String titulo;
     private String autor;
     private Date data_entrada;
     private Date data_lancamento;
     private String genero;
 
+    public int getID(){
+        return id;
+    }
+    public void setID(int id){
+        this.id = id;
+    }
     public String getTitulo() {
         return titulo;
     }
@@ -63,7 +72,7 @@ public class Livro {
         this.genero = genero;
     }
     
-    public void save(Livro l) throws Exception{
+    public void save() throws Exception{
         try(Connection conexao = new Conexao().Conectar()){
             PreparedStatement ps;
             String sql = "INSERT INTO livro(titulo, "
@@ -73,11 +82,11 @@ public class Livro {
                     + "genero)"
                     + "VALUES(?,?,?,?,?)";
             ps = conexao.prepareStatement(sql);
-            ps.setString(1, l.getTitulo());
-            ps.setString(2, l.getAutor());
-            ps.setDate(3, l.getData_entrada());
-            ps.setDate(4, l.getData_lancamento());
-            ps.setString(5, l.getGenero());
+            ps.setString(1, this.getTitulo());
+            ps.setString(2, this.getAutor());
+            ps.setDate(3, this.getData_entrada());
+            ps.setDate(4, this.getData_lancamento());
+            ps.setString(5, this.getGenero());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "inclusao finalizada");
             conexao.close();
@@ -85,29 +94,37 @@ public class Livro {
             throw new RuntimeException(u);
         }
     }
-    public void list(Livro l, javax.swing.JTable tblTable) throws Exception{
+    public void list(javax.swing.JTable tblTable) throws Exception{
         try(Connection conexao = new Conexao().Conectar()){
             PreparedStatement ps;
             String sql = "SELECT * FROM livro";
             ps = conexao.prepareStatement(sql);
             ResultSet rq = ps.executeQuery();
+            DefaultTableModel dmodel = (DefaultTableModel)tblTable.getModel();
+            while (dmodel.getRowCount() > 0)
+                dmodel.removeRow(0);
             while(rq.next()){
-                int id;
-                String Titulo, Autor, Genero;
-                Date dt_ent, dt_lan;
-                id = rq.getInt("id");
-                Titulo = rq.getString("titulo");
-                Autor = rq.getString("autor");
-                Genero = rq.getString("genero");
-                dt_ent = rq.getDate("data_entrada");
-                dt_lan = rq.getDate("data_lancamento");
-                /*JOptionPane.showMessageDialog(null, "livro:" + Titulo
-                    + "\nautor:" + Autor
-                    + "\ngenero:" + Genero
-                    + "\ndata de entrada no sistema:" + dt_ent
-                    + "\ndata de lancamento:" + dt_lan);*/
+                Object[] info = {null, null, null, null, null, null};
+                info[0] = rq.getInt("id");
+                info[1] = rq.getString("titulo");
+                info[2] = rq.getString("autor");
+                info[3] = rq.getString("genero");
+                info[4] = rq.getDate("data_entrada");
+                info[5] = rq.getDate("data_lancamento");
+                dmodel.addRow(info);
             }
-            JOptionPane.showMessageDialog(null, "listagem finalizada");
+            conexao.close();
+        } catch(SQLException u){
+            throw new RuntimeException(u);
+        }
+    }
+    public void delet() throws Exception{
+        try(Connection conexao = new Conexao().Conectar()){
+            PreparedStatement ps;
+            String sql = "DELETE FROM livro WHERE id = ?";
+            ps = conexao.prepareStatement(sql);
+            ps.setInt(1, this.getID());
+            ps.executeUpdate();
             conexao.close();
         } catch(SQLException u){
             throw new RuntimeException(u);
