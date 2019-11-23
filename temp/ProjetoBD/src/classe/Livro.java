@@ -101,10 +101,9 @@ public class Livro {
             ps = conexao.prepareStatement(sql);
             ResultSet rq = ps.executeQuery();
             DefaultTableModel dmodel = (DefaultTableModel)tblTable.getModel();
-            while (dmodel.getRowCount() > 0)
-                dmodel.removeRow(0);
+            dmodel.setRowCount(0);
             while(rq.next()){
-                Object[] info = {null, null, null, null, null, null};
+                Object[] info = new Object[6];
                 info[0] = rq.getInt("id");
                 info[1] = rq.getString("titulo");
                 info[2] = rq.getString("autor");

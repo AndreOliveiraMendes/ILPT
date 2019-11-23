@@ -284,8 +284,7 @@ public class TelaCadastro extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         DefaultTableModel dmodel = (DefaultTableModel)tblLista.getModel();
-        while (dmodel.getRowCount() > 0)
-            dmodel.removeRow(0);
+        dmodel.setRowCount(0);
         jButton4.setEnabled(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
