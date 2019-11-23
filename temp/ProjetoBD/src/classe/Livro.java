@@ -103,13 +103,7 @@ public class Livro {
             DefaultTableModel dmodel = (DefaultTableModel)tblTable.getModel();
             dmodel.setRowCount(0);
             while(rq.next()){
-                Object[] info = new Object[6];
-                info[0] = rq.getInt("id");
-                info[1] = rq.getString("titulo");
-                info[2] = rq.getString("autor");
-                info[3] = rq.getString("genero");
-                info[4] = rq.getDate("data_entrada");
-                info[5] = rq.getDate("data_lancamento");
+                Object[] info = getInfo(rq);
                 dmodel.addRow(info);
                 res = true;
             }
@@ -118,6 +112,17 @@ public class Livro {
             throw new RuntimeException(u);
         }
         return res;
+    }
+
+    public Object[] getInfo(ResultSet rq) throws SQLException {
+        Object[] info = new Object[6];
+        info[0] = rq.getInt("id");
+        info[1] = rq.getString("titulo");
+        info[2] = rq.getString("autor");
+        info[3] = rq.getString("genero");
+        info[4] = rq.getDate("data_entrada");
+        info[5] = rq.getDate("data_lancamento");
+        return info;
     }
     public void delet() throws Exception{
         try(Connection conexao = new Conexao().Conectar()){
