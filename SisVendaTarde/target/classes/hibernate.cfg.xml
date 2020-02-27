@@ -32,7 +32,7 @@
     <!-- Mapeamento das Entidades -->
     <mapping class= "br.com.sisvendatarde.domain.Fornecedor"/>
     <mapping class= "br.com.sisvendatarde.domain.Funcionario"/>
-    <mapping class= "br.com.sisvendatarde.domain.Produtos"/>
+    <mapping class= "br.com.sisvendatarde.domain.Produto"/>
     <mapping class= "br.com.sisvendatarde.domain.Venda"/>
     
   </session-factory>
