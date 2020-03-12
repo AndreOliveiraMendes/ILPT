@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
+	
+	<ui:define name="Conteudo">
+		<h:form>
+			<p:toolbar>
+				<f:facet name="left">
+					<h:outputText value="Fornecedor"/>
+				</f:facet>
+			</p:toolbar>
+			<h:panelGrid columns="4">
+				<p:outputLabel value="Nome:"/>
+				<p:inputText maxlength="50" size="30"/>
+				<p:button value="buscar"/>
+				<p:button value="novo" outcome="/pages/ProdutoCadastro.xhtml"/>
+			</h:panelGrid>
+			<p:dataTable emptyMessage="Nenhum Registro Encontrado" paginator="true">
+				<p:column headerText="Código"></p:column>
+				<p:column headerText="Nome"></p:column>
+				<p:column headerText="Descrição"></p:column>
+				<p:column headerText="Valor"></p:column>
+				<p:column headerText="Fornecedor"></p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

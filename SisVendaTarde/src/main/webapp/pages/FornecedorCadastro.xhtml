@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
+	
+	<ui:define name="Conteudo">
+		<h:form>
+			<p:toolbar>
+				<f:facet name="left">
+					<h:outputText value="Fornecedor"/>
+				</f:facet>
+			</p:toolbar>
+			<h:panelGrid columns="2">
+				<p:outputLabel value="Nome:"/>
+				<p:inputText maxlength="50" size="30"/>
+			</h:panelGrid>
+			<h:panelGrid columns="5">
+				<p:commandButton value="Novo"/>
+				<p:commandButton value="Salvar"/>
+				<p:commandButton value="Editar"/>
+				<p:commandButton value="Excluir"/>
+				<p:button value="Voltar" outcome="/pages/FornecedorPesquisa.xhtml"/>
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
