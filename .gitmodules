@@ -1,3 +1,6 @@
 [submodule "svt-pwp1"]
 	path = svt-pwp1
 	url = https://github.com/AndreOliveiraMendes/svt-pwp1
+[submodule "code-of-advent"]
+	path = code-of-advent
+	url = https://github.com/AndreOliveiraMendes/code-of-advent
